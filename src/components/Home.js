@@ -17,7 +17,7 @@ function Home() {
 
   const call = (movieTitle) => {
     axios
-      .get(`http://www.omdbapi.com/?s=${movieTitle}&apikey=f5f8bd43`)
+      .get(`https://www.omdbapi.com/?s=${movieTitle}&apikey=f5f8bd43`)
       .then((Response) => {
         console.log(Response);
         setMovieList(Response.data.Search);
