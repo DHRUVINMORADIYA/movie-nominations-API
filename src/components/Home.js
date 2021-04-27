@@ -1,7 +1,8 @@
 import { React, useEffect, useState } from "react";
+import ShowNominations from "./ShowNominations";
+import showResults from "./ShowResults";
 import axios from "axios";
 import Card from "@material-ui/core/Card";
-import Button from "@material-ui/core/Button";
 import CardContent from "@material-ui/core/CardContent";
 import TextField from "@material-ui/core/TextField";
 import "./Home.css";
@@ -25,79 +26,6 @@ function Home() {
       .catch((error) => console.log(error));
   };
 
-  const addToNominee = (movie) => {
-    if (nominations.length >= 5) {
-      alert("You have 5 movies nominated!");
-      return;
-    }
-    let match = nominations.filter((item) => item.imdbID === movie.imdbID);
-    console.log(match);
-    if (match.length === 0) setNominations([...nominations, movie]);
-    else alert(`"${movie.Title}" is already added to the nominations!`);
-  };
-
-  const showResults = () => {
-    const heading = movieTitle ? `Results for "${movieTitle}"` : `Results`;
-    return (
-      <div className="resultsList">
-        <text className="headingText">{heading}</text>
-        <ul>
-          {movieList &&
-            movieList.map((movie) => (
-              <div>
-                <li>
-                  <text className="listText">
-                    {movie.Title} ({movie.Year})
-                  </text>
-                  <Button
-                    className="addToNomineeButton"
-                    size="small"
-                    variant="contained"
-                    onClick={() => addToNominee(movie)}
-                  >
-                    Nominate
-                  </Button>
-                </li>
-              </div>
-            ))}
-        </ul>
-      </div>
-    );
-  };
-
-  const removeNominee = (movie) => {
-    console.log(nominations.length);
-    setNominations(nominations.filter((title) => title.Title !== movie.Title));
-    console.log(nominations.length);
-  };
-
-  const showNominations = () => {
-    return (
-      <div className="nominationsList" id="nominationsHeader">
-        <text className="headingText">Nominations</text>
-        <ul>
-          {nominations &&
-            nominations.map((movie) => (
-              <div>
-                <li>
-                  <text className="listText">
-                    {movie.Title} ({movie.Year})
-                  </text>
-                  <Button
-                    size="small"
-                    variant="contained"
-                    onClick={() => removeNominee(movie)}
-                  >
-                    Remove
-                  </Button>
-                </li>
-              </div>
-            ))}
-        </ul>
-      </div>
-    );
-  };
-
   return (
     <div className="main">
       <text className="theShoppies">The Shoppies</text>
@@ -113,9 +41,9 @@ function Home() {
         </CardContent>
       </Card>
       <div className="results">
-        {showResults()}
+        {showResults({ movieList, movieTitle, nominations, setNominations })}
         <div className="verticalLine"></div>
-        {showNominations()}
+        {ShowNominations({ nominations, setNominations })}
       </div>
     </div>
   );

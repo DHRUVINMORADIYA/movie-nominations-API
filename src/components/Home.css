@@ -1,3 +1,7 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 .inputCard {
   width: 1000px;
   display: flex;
@@ -35,6 +39,7 @@
   display: inline;
   display: flex;
   justify-content: left;
+  margin-bottom: 10px;
 }
 
 .theShoppies {
@@ -57,7 +62,7 @@
 
 li {
   font-size: medium;
-  margin-left: -20px;
+  margin-left: 20px;
   margin-bottom: 10px;
 }
 
