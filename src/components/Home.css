@@ -1,0 +1,72 @@
+.inputCard {
+  width: 1000px;
+  display: flex;
+  justify-content: left;
+  background-color: rgb(142, 107, 240);
+  margin-bottom: 20px;
+}
+
+.main {
+  display: grid;
+  justify-content: center;
+}
+
+.theShoppies {
+  display: flex;
+  justify-content: left;
+}
+
+.resultsList {
+  width: 500px;
+}
+
+.nominationsList {
+  width: 500px;
+}
+
+.results {
+  display: flex;
+}
+
+.headingText {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  display: inline;
+  display: flex;
+  justify-content: left;
+}
+
+.theShoppies {
+  margin-top: 50px;
+  margin-bottom: 15px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.verticalLine {
+  width: 1px;
+  background-color: black;
+  height: 70vh;
+}
+
+#nominationsHeader {
+  margin-left: 10px;
+}
+
+li {
+  font-size: medium;
+  margin-left: -20px;
+  margin-bottom: 10px;
+}
+
+ul {
+  text-align: left;
+}
+
+.listText {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+  margin-right: 10px;
+}
